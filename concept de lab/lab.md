@@ -1,42 +1,60 @@
-# LAB — Découverte et expérimentation
+---
+marp: true
+---
+# What is a Lab?
 
-## 1. Définition
+**Learn, then teach**
 
-Un **LAB (Laboratory)** est une activité pratique qui permet de découvrir, tester et expérimenter un outil, une technologie ou un concept informatique.
+---
 
-## 2. Objectifs
+## Plan
 
-- Comprendre le fonctionnement d'un outil.
-- Mettre en pratique les connaissances théoriques.
-- Réaliser des tests et observer les résultats.
-- Identifier les avantages et les limites de la solution étudiée.
+Search → Read → Think → Questions → Understand
 
-## 3. Étapes d'un LAB
+---
 
-1. **Objectif :** définir ce qu'on veut apprendre.
-2. **Découverte :** comprendre le concept ou l'outil.
-3. **Expérimentation :** réaliser des manipulations pratiques.
-4. **Observation :** analyser les résultats obtenus.
-5. **Conclusion :** résumer ce qu'on a appris.
+## 1. Search
 
-## 4. Exemple de LAB
+- Several sources
+- Reliable, recent
 
-**Sujet : Découvrir OpenCode**
+---
 
-- **Objectif :** comprendre le rôle d'un agent IA pour le développement.
-- **Découverte :** identifier ses fonctionnalités.
-- **Expérimentation :** tester l'outil sur un projet HTML/CSS.
-- **Observation :** analyser ses réponses et ses propositions.
-- **Conclusion :** identifier les possibilités et les limites de l'outil.
+## 2. Read
 
-## 5. Différence entre théorie et LAB
+- Take notes
+- Own words
+- Mark unclear parts
 
-| Théorie | LAB |
-|---|---|
-| Lire et comprendre un concept. | Tester et expérimenter un concept. |
-| Étudier le fonctionnement d'un outil. | Manipuler l'outil. |
-| Acquérir des connaissances. | Mettre les connaissances en pratique. |
+---
 
-## Conclusion
+## 3. Think
 
-Un LAB permet d'apprendre par la pratique, de tester des solutions et de développer son autonomie technique.
+- Link ideas
+- Use an example
+- Draw a diagram
+
+---
+
+## 4. Questions
+
+- Where does it break?
+- Each gap = next topic
+- Loop back to Search
+
+---
+
+## 5. Understand
+
+- No jargon
+- Teach someone
+- Refine from feedback
+
+---
+
+## Takeaways
+
+- Learn, then teach
+- Five steps, one loop
+- Gaps guide learning
+- Teaching proves it
