@@ -1,3 +1,17 @@
-﻿# list des veuilles
+﻿# Liste des veilles technologiques
 
-- [list des veuilles](https://docs.google.com/document/d/1WTRLjk2xaSa9QZroIGwZ2cnBUdRs9TdWavFVfty8KoI/edit?usp=sharing)
+## ✅ Done
+
+1. **Définition de la veille technologique** (Khadija Gerouj)
+2. **Agent AI** (Omar Moutalie)
+3. **AI Agent Skills** (Ibrahim Medkour)
+4. **MCP** (Mohamed Dghar)
+5. **Claude Code for Free** (Ayoub Amaghouch)
+
+---
+
+## ⏳ Not Done
+
+1. **OpenCode** (Mohammed Yassir Mesbahi)
+2. **RAG** (Badreddine Hammam)
+3. **SOLID** (Mesbahi Nour)
