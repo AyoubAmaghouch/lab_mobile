@@ -1,196 +1,247 @@
 ---
 marp: true
 theme: default
-paginate: false
+paginate: true
 size: 16:9
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
   section {
-    background: #70020f;
+    background: #d8808a;
     color: #ffe0e3;
-    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 26px;
     padding: 50px 60px;
     text-transform: uppercase;
     justify-content: flex-start;
   }
+
   h1, h2 {
-    font-family: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+    font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
     font-weight: 400;
     color: #ffe0e3;
-    line-height: 0.95;
+    line-height: 0.98;
     letter-spacing: -1px;
-    margin: 0 0 30px 0;
+    margin: 0 0 28px 0;
   }
-  h1 { font-size: 110px; }
-  h2 { font-size: 84px; }
+
+  h1 { font-size: 100px; }
+  h2 { font-size: 68px; }
+
   h3 {
     font-size: 28px;
-    margin: 0;
+    margin: 0 0 10px 0;
     color: #e6d9dc;
   }
-  p { margin: 0 0 6px 0; }
 
-  /* Light variant (pink background, dark red text) */
-  section.light { background: #ffdde0; color: #70020f; }
-  section.light h1, section.light h2 { color: #70020f; }
-  section.light p, section.light li {
-    font-family: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
-    font-size: 30px;
-    line-height: 1.35;
+  p { margin: 0 0 12px 0; }
+
+  section.light {
+    background: #ffdde0;
+    color: #0629ef;
+  }
+
+  section.light h1,
+  section.light h2,
+  section.light h3 {
+    color: #2882f1;
+  }
+
+  section.light p,
+  section.light li {
     color: #111;
   }
 
-  /* Title slide */
-  section.title { justify-content: space-between; }
-  section.title h1 { font-size: 150px; margin-top: 0; }
+  section.title {
+    justify-content: space-between;
+  }
+
+  section.title h1 {
+    font-size: 116px;
+    margin-top: 8px;
+  }
+
   section.title::before {
-    content: "DEVEL\A OPER";
+    content: "DEV\\A ENV";
     white-space: pre;
     position: absolute;
-    right: -60px;
-    top: 230px;
-    font-family: 'Anton', 'Impact', sans-serif;
-    font-size: 300px;
-    line-height: 0.95;
+    right: -15px;
+    bottom: 10px;
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 250px;
+    line-height: 0.85;
     color: #5f0010;
     z-index: 0;
   }
-  section.title h1, section.title .by { position: relative; z-index: 1; }
-  .by { font-size: 20px; text-transform: none; }
+
+  section.title h1,
+  section.title .by {
+    position: relative;
+    z-index: 1;
+  }
+
+  .by {
+    font-size: 20px;
+    text-transform: none;
+    margin-top: 20px;
+  }
+
   .by strong {
-    font-family: 'Anton', 'Impact', sans-serif;
+    font-family: 'Anton', Impact, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 27px;
     display: block;
   }
 
-  /* Two-column layout */
-  .cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    text-align: center;
-    margin-top: 60px;
-  }
-  .cols .col {
-    font-family: 'Anton', 'Impact', sans-serif;
-    font-size: 34px;
-    line-height: 1.25;
-  }
-
-  /* Extension lists */
-  ul.ext { list-style: none; padding: 0; margin: 10px 0 0 0; }
-  ul.ext li { margin-bottom: 22px; font-size: 22px; line-height: 1.3; }
-  ul.ext li strong {
-    display: block;
-    font-size: 30px;
-    color: #e6d9dc;
-    margin-bottom: 2px;
-  }
-
-  /* Bullet lists on dark slides */
-  section:not(.light) ul:not(.ext) {
-    font-family: 'Anton', 'Impact', sans-serif;
+  ul, ol {
     font-size: 30px;
     line-height: 1.35;
   }
-  .hl { color: #4a6fe3; }
-  section.light strong { color: #70020f; }
+
+  li { margin-bottom: 12px; }
+
+  code {
+    background: rgba(255, 224, 227, 0.13);
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: none;
+  }
+
+  section.light code {
+    background: rgba(112, 2, 15, 0.09);
+  }
+
+  .subtitle {
+    font-size: 25px;
+    color: #e6d9dc;
+    text-transform: none;
+  }
+
+  .small {
+    font-size: 21px;
+    line-height: 1.35;
+    text-transform: none;
+  }
+
+  .step {
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 31px;
+    color: #ffe0e3;
+  }
+
+  section.light .step {
+    color: #70020f;
+  }
 ---
 
 <!-- _class: title -->
 
-# Developer<br>Starter<br>Pack
+# Development<br>Environment
 
 <div class="by">
+  <strong></strong>
 
-
+encadre:essarraj-fouad 
 </div>
 
 ---
 
-## 1. Code Editor / IDE
+<!-- _class: light -->
+
+## Lab Plan
+
+1. Problems encountered during the lab
+2. Showing hidden files and folders
+3. Making `README.md` visible
+4. Using Todo Highlight for code reminders
+5. Installing and using Live Server
+6. Configuring Marp Markdown Preview
+7. Meaning of IDE and why we use it
+
+---
+
+## Problems Encountered
+
+- Hidden files and folders, such as `.git`, were not visible in the file explorer.
+- The `README.md` file was not displayed as expected.
+- We sometimes forgot which lines of code needed to be modified.
+- Marp presentation files did not open in the expected preview.
+
+---
+
+<!-- _class: light -->
+
+## Solutions Implemented
+
+### 01 — Show hidden files
+
+Enabled the relevant file-explorer setting so hidden files and folders, including `.git`, could be seen.
+
+### 02 — Display README.md
+
+Adjusted the relevant VS Code option/extension setting so `README.md` appeared in the explorer.
+
+### 03 — Remember code changes
+
+Installed **Todo Highlight** to highlight important comments and reminders in the code.
+
+---
+<!-- TODO: -->
+<!-- _class: light -->
+
+## Solutions Implemented
+
+### 04 — Preview web pages
+
+Installed **Live Server** to launch a local development server and automatically refresh web pages after changes.
+
+### 05 — Preview Marp slides
+
+Installed/configured the **Marp extension** so Markdown presentation files could be viewed in slide preview.
+## 05- Meaning of IDE and why we use it
+
+---
+
+<!-- _class: light -->
+
+## 07 — What Is an IDE?
+
+An **IDE (Integrated Development Environment)** is a software application that helps developers write, run, test, and debug code in one place.
+
+### Why do we use an IDE?
+
+- **Code Editor:** Write and edit source code.
+- **Terminal:** Execute commands without leaving the IDE.
+- **Debugger:** Find and fix errors in the code.
+- **Extensions:** Add useful tools and features.
+- **File Explorer:** Organize project files and folders.
+- **Git Integration:** Track changes and manage versions.
+
+---
+
+## Examples of IDEs and Code Editors
 
 <div class="cols">
+
 <div class="col">
 
-<!-- Add VS Code logo: ![w:200](vscode.png) -->
-Visual Studio Code<br>
-1 - Free<br>
-2 - Beginner-friendly
+Visual Studio Code
+
+Flexible, lightweight, and customizable with extensions.
 
 </div>
+
 <div class="col">
 
-<!-- Add JetBrains logo: ![w:200](jetbrains.png) -->
-JetBrains IDEs<br>
-(PyCharm, IntelliJ, PhpStorm)
+JetBrains IDEs
+
+PyCharm, IntelliJ IDEA, and PhpStorm provide specialized development tools.
 
 </div>
+
 </div>
 
----
+### Remember
 
-## Best VS Code<br>Extensions
-
-<ul class="ext">
-<li><strong>Live Server</strong>Launches a local development server with a live reload feature</li>
-<li><strong>Prettier</strong>A code formatter. It automatically cleans up, indents, and structures your code</li>
-<li><strong>GitLens</strong>Visualizes code authorship directly inside your files</li>
-<li><strong>Todo Tree</strong>Scans your workspace for comment tags like <b>TODO</b> or <b>FIXME</b> and organizes them into a clear tree view so you never forget unfinished tasks</li>
-<li><strong>Error Lens</strong>Radically changes how you see mistakes in your code by bringing errors directly to your line of sight rather than hiding them at the bottom of the screen</li>
-</ul>
-
----
-
-<ul class="ext">
-<li><strong>Auto Rename Tag</strong>It auto renames the other tag whether it is a closing or opening tag</li>
-<li><strong>Auto-Open Markdown Preview</strong>Automatically opens the preview of a Markdown file</li>
-<li><strong>Code Runner</strong>Lets you run multiple programming languages in the console by clicking a play button</li>
-<li><strong>GitHub Copilot</strong>An AI assistant integrated right in the IDE. It can solve problems or refactor and debug code</li>
-</ul>
-
----
-
-## Version<br>Control
-
-- <span class="hl">Git</span>, the essential tool
-- <span class="hl">GitHub account</span> (also works as your portfolio). GitLab is an alternative.
-- <span class="hl">GitHub Desktop</span> or the GitLens extension if the command line feels heavy at first
-
-<!-- Add logos: ![w:120](git.png) ![w:100](github.png) -->
-
----
-
-<!-- _class: light -->
-
-## Browsers and<br>Dev Tools
-
-Chrome or Firefox with DevTools (Elements, Console, Network, Application tabs)
-Handy extensions: React DevTools (if you use React later), JSON Viewer, Lighthouse
-
----
-
-<!-- _class: light -->
-
-## Runtimes and<br>Languages
-
-Install only what you need:
-Node.js (LTS), which includes npm
-Python 3
-PHP, if you're doing PHP work
-Java JDK, if you're going the Java or Android route
-
----
-
-## Local Server and<br>Database
-
-- XAMPP or Laragon gives you Apache, PHP, and MySQL in one install (great for PHP/MySQL projects)
-- phpMyAdmin (comes with XAMPP) or DBeaver to manage databases
-- MySQL Workbench for visual schema design
-- SQLite for quick, lightweight projects
-
-<!-- Add logos: ![w:120](mysql.png) ![w:120](xampp.png) -->
+**An IDE helps developers work faster, stay organized, and solve problems more easily.**
