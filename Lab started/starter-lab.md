@@ -121,6 +121,7 @@ style: |
   .small {
     font-size: 21px;
     line-height: 1.35;
+
     text-transform: none;
   }
 
@@ -147,17 +148,24 @@ encadre:essarraj-fouad
 
 ---
 
+
+
 <!-- _class: light -->
 
 ## Lab Plan
 
-1. Problems encountered during the lab
-2. Showing hidden files and folders
-3. Making `README.md` visible
-4. Using Todo Highlight for code reminders
-5. Installing and using Live Server
-6. Configuring Marp Markdown Preview
-7. Meaning of IDE and why we use it
+1. Introduction
+2. Problems Encountered During the Lab
+3. Solutions Implemented:
+   - Showing hidden files and folders
+   - Making `README.md` visible
+   - Using Todo Highlight for code reminders
+   - Installing and using Live Server
+   - Configuring Marp Markdown Preview
+4. Understanding IDEs and Why We Use Them
+
+---
+
 
 ---
 
