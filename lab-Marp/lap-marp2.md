@@ -96,10 +96,10 @@ FRONTEND
 HTML / Tailwind / JavaScript
     |
     v
-API PHP
+BACKEEND
     |
     v
-FICHIER JSON
+FICHIER JSON API PHP
 ```
 
 ---
