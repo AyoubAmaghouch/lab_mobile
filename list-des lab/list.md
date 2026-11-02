@@ -11,5 +11,11 @@
 9. scrum
 10. design thinkin
 11. 2tup
+12. ISUSS GITHUB
+13. POO
+14. LARAVEL
+15. PROMT - AGENT - SKILL
+16. Communication avec ia
+17. erure js
     
    
