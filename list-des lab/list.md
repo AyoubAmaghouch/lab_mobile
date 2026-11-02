@@ -16,5 +16,6 @@
 14. LARAVEL
 15. PROMT - AGENT - SKILL
 16. Communication avec ia
+17. erure js
     
    
