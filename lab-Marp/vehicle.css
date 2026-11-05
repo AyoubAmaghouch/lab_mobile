@@ -1,0 +1,305 @@
+/* @theme vehicle */
+
+@import 'default';
+
+/* ========================================================
+   VARIABLES
+   Palette : Bleu foncé, Bleu professionnel, Blanc & Accent
+======================================================== */
+
+:root {
+  --primary: #1d4ed8;       /* Bleu professionnel */
+  --primary-dark: #1e3a8a;  /* Bleu marine foncé */
+  --secondary: #0f172a;     /* Bleu ardoise très sombre */
+  --accent: #38bdf8;        /* Bleu ciel accent */
+  --accent-soft: #dbeafe;   /* Fond bleu clair */
+  --light: #f8fafc;         /* Fond blanc cassé / clair */
+  --light-alt: #eff6ff;     /* Fond bleu très pâle */
+  --text: #1e293b;          /* Texte sombre lisible */
+  --text-muted: #64748b;    /* Texte secondaire atténué */
+  --border: #cbd5e1;        /* Couleur des bordures */
+}
+
+/* ========================================================
+   STYLE GLOBAL DES DIAPOSITIVES
+======================================================== */
+
+section {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: var(--light);
+  color: var(--text);
+  padding: 42px 60px;
+  font-size: 18.5px;
+  line-height: 1.45;
+  justify-content: flex-start;
+}
+
+section h1 {
+  color: var(--primary);
+  font-size: 31px;
+  font-weight: 800;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+section h2 {
+  color: var(--secondary);
+  font-size: 21px;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+section h3 {
+  color: var(--primary);
+  font-size: 17.5px;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+section p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+section strong {
+  color: var(--primary);
+}
+
+section ul,
+section ol {
+  margin-top: 2px;
+  margin-bottom: 8px;
+  padding-left: 24px;
+}
+
+section li {
+  margin-bottom: 4px;
+}
+
+/* ========================================================
+   PAGE DE GARDE (COVER)
+======================================================== */
+
+section.cover {
+  background: linear-gradient(
+    135deg,
+    #020617 0%,
+    #0f172a 40%,
+    #1e3a8a 75%,
+    #1d4ed8 100%
+  );
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 60px;
+}
+
+/* Dimensionnement et affichage sans déformation des logos */
+section.cover img {
+  height: 60px;
+  max-height: 65px;
+  width: auto;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 8px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  margin: 0 12px 14px 12px;
+  vertical-align: middle;
+}
+
+section.cover h1 {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 800;
+  border: none;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 8px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+
+section.cover h3 {
+  color: var(--accent);
+  font-size: 21px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+section.cover p {
+  color: #e2e8f0;
+  font-size: 19px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+section.cover strong {
+  color: var(--accent);
+}
+
+/* Masquer la pagination sur la page de garde */
+section.cover::after {
+  content: '';
+  display: none;
+}
+
+/* ========================================================
+   DIAPOSITIVES LIGHT
+======================================================== */
+
+section.light {
+  background-color: var(--light);
+  color: var(--text);
+}
+
+section.light h1 {
+  color: var(--primary);
+  border-bottom: 3px solid var(--accent);
+}
+
+section.light h2 {
+  color: var(--primary-dark);
+}
+
+section.light strong {
+  color: var(--primary);
+}
+
+/* ========================================================
+   DIAPOSITIVES CONTENT
+======================================================== */
+
+section.content {
+  background-color: var(--light-alt);
+  color: var(--text);
+}
+
+section.content h1 {
+  color: var(--primary-dark);
+  border-bottom: 3px solid var(--primary);
+}
+
+section.content h2 {
+  color: var(--primary);
+}
+
+section.content h3 {
+  color: var(--primary-dark);
+}
+
+section.content strong {
+  color: var(--primary-dark);
+}
+
+/* ========================================================
+   DIAPOSITIVES DARK (CONCLUSION)
+======================================================== */
+
+section.dark {
+  background: linear-gradient(
+    135deg,
+    #020617 0%,
+    #0f172a 60%,
+    #172554 100%
+  );
+  color: #f8fafc;
+}
+
+section.dark h1 {
+  color: #38bdf8;
+  border-bottom: 3px solid #38bdf8;
+}
+
+section.dark h2,
+section.dark h3 {
+  color: #93c5fd;
+}
+
+section.dark p {
+  color: #e2e8f0;
+}
+
+section.dark strong {
+  color: #38bdf8;
+}
+
+section.dark li {
+  color: #e2e8f0;
+}
+
+/* Titre final de remerciement sur fond sombre */
+section.dark h1:last-of-type {
+  border: none;
+  text-align: center;
+  color: var(--accent);
+  font-size: 24px;
+  margin-top: 14px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  letter-spacing: 1px;
+}
+
+/* ========================================================
+   ÉLÉMENTS COMPLÉMENTAIRES (CODE, TABLEAUX, IMAGES)
+======================================================== */
+
+section code {
+  background: var(--accent-soft);
+  color: var(--primary-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+section img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+section table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+section th {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+section td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+}
+
+/* ========================================================
+   PAGINATION DISCRÈTE
+======================================================== */
+
+section::after {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  right: 40px;
+  bottom: 20px;
+}
+
+section.dark::after {
+  color: #94a3b8;
+}

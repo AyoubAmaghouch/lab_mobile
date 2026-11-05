@@ -103,30 +103,61 @@ style: |
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px;
+    padding: 35px 40px;
+  }
+  section.cover img {
+    height: 55px;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 6px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    display: inline-block;
+    margin: 0 18px 18px 18px;
+    vertical-align: middle;
+  }
+  .cover-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .cover-logos img {
+    height: 55px;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 6px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   }
   section.cover h1 {
     color: #ffffff;
-    font-size: 36px;
+    font-size: 34px;
     border-bottom: 3px solid #38bdf8;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
   section.cover h2 {
     color: #7dd3fc;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 400;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .cover-meta {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    padding: 16px 28px;
+    padding: 14px 28px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px 36px;
+    gap: 14px 36px;
     text-align: left;
     font-size: 15px;
     color: #e2e8f0;
@@ -156,6 +187,8 @@ style: |
 
 <!-- _class: cover -->
 <!-- _paginate: false -->
+
+![OFPPT](images/ofppt.png) ![SOLICODE](images/solicode.png)
 
 # INTRODUCTION AUX LABS
 

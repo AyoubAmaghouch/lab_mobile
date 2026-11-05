@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>presentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- _class: cover -->
+<p><img src="images/ofppt.png" alt="OFPPT">
+<img src="images/solicode.png" alt="Solicode"></p>
+<h1 id="gestion-des-véhicules-v2">GESTION DES VÉHICULES V2</h1>
+<h3 id="application-web-de-gestion-des-véhicules">Application web de gestion des véhicules</h3>
+<p><strong>Réalisé par :</strong> Ayoub Amaghouch</p>
+<p><strong>Encadré par :</strong> ES-Sarraj Fouad</p>
+<p><strong>Année de formation :</strong> 2026</p>
+<!--
+Bonjour à tous.
+Je m'appelle Ayoub Amaghouch.
+Aujourd'hui, je vais vous présenter mon projet technique.
+Il s'agit d'une application web de gestion des véhicules.
+-->
+<!--
+Bonjour à tous.
+Je m'appelle [Ton nom].
+Aujourd'hui, je vais vous présenter mon projet technique.
+Le projet s'appelle Vehicle Management System.
+C'est une application web destinée à la gestion des véhicules.
+-->
+<hr>
+<!-- _class: light -->
+<h1 id="plan-de-présentation">PLAN DE PRÉSENTATION</h1>
+<p>Les différentes étapes de notre projet technique :</p>
+<ol>
+<li><strong>Introduction</strong> — Présentation du projet.</li>
+<li><strong>Besoin</strong> — Problématique et solution proposée.</li>
+<li><strong>Analyse</strong> — Étude des besoins et fonctionnalités.</li>
+<li><strong>Conception</strong> — Diagrammes et modèles du système.</li>
+<li><strong>Réalisation</strong> — Technologies et prototype.</li>
+<li><strong>Conclusion</strong> — Résultats du projet.</li>
+</ol>
+<!--
+Voici le plan de ma présentation.
+Je vais commencer par présenter le projet.
+Ensuite, je vais expliquer les besoins et les fonctionnalités.
+Après, je vais présenter la conception et les technologies utilisées.
+Enfin, je vais terminer par la conclusion.
+-->
+<hr>
+<!-- _class: light -->
+<h1 id="introduction">INTRODUCTION</h1>
+<h2 id="présentation-du-projet">Présentation du projet</h2>
+<p>Vehicle Management System est une application web qui permet de gérer les véhicules à travers une interface simple et intuitive.</p>
+<p>L'application permet d'ajouter, consulter, modifier et supprimer des véhicules.</p>
+<h2 id="objectif-du-projet">Objectif du projet</h2>
+<p>Développer une application web permettant de centraliser et de faciliter la gestion des informations relatives aux véhicules.</p>
+<h2 id="les-acteurs-principaux">Les acteurs principaux</h2>
+<ul>
+<li><strong>Administrateur / Gestionnaire :</strong> gère les informations des véhicules.</li>
+<li><strong>Utilisateur :</strong> consulte les véhicules enregistrés.</li>
+</ul>
+<!--
+Cette diapositive présente mon projet.
+Il s'agit d'une application web de gestion des véhicules.
+Elle permet d'effectuer les opérations principales : ajouter, afficher, modifier et supprimer.
+L'objectif est de faciliter la gestion des informations des véhicules.
+-->
+<hr>
+<!-- _class: light -->
+<h1 id="besoin-du-projet">BESOIN DU PROJET</h1>
+<h2 id="problématique">Problématique</h2>
+<p>Comment faciliter la gestion des véhicules et assurer une organisation efficace de leurs informations tout en simplifiant les opérations quotidiennes ?</p>
+<h2 id="besoins-principaux">Besoins principaux</h2>
+<p><strong>Gestionnaire :</strong></p>
+<ul>
+<li>Ajouter un nouveau véhicule.</li>
+<li>Consulter la liste des véhicules.</li>
+<li>Modifier les informations d'un véhicule.</li>
+<li>Supprimer un véhicule.</li>
+</ul>
+<p><strong>Application :</strong></p>
+<ul>
+<li>Afficher les données de manière organisée.</li>
+<li>Vérifier les informations saisies.</li>
+<li>Assurer la communication entre le Frontend et le Backend.</li>
+<li>Stocker les informations des véhicules.</li>
+</ul>
+<!--
+Cette diapositive présente les besoins du projet.
+Le problème principal est la difficulté d'organiser et de gérer les informations des véhicules.
+Notre solution permet d'effectuer les opérations CRUD.
+Elle facilite également la consultation et la modification des données.
+-->
+<hr>
+<!-- _class: light -->
+<h1 id="analyse-du-projet">ANALYSE DU PROJET</h1>
+<h2 id="fonctionnalités-principales">Fonctionnalités principales</h2>
+<p><strong>1. Create — Ajouter</strong></p>
+<ul>
+<li>Ajouter un véhicule avec ses informations.</li>
+</ul>
+<p><strong>2. Read — Consulter</strong></p>
+<ul>
+<li>Afficher la liste des véhicules.</li>
+<li>Consulter les détails d'un véhicule.</li>
+</ul>
+<p><strong>3. Update — Modifier</strong></p>
+<ul>
+<li>Modifier les informations d'un véhicule existant.</li>
+</ul>
+<p><strong>4. Delete — Supprimer</strong></p>
+<ul>
+<li>Supprimer un véhicule enregistré.</li>
+</ul>
+<h2 id="validation-des-données">Validation des données</h2>
+<ul>
+<li>Vérifier les champs obligatoires.</li>
+<li>Contrôler les informations saisies.</li>
+<li>Afficher des notifications à l'utilisateur.</li>
+</ul>
+<!--
+Dans cette partie, je présente les fonctionnalités de mon application.
+Le projet repose sur les quatre opérations CRUD.
+Create permet d'ajouter un véhicule.
+Read permet de consulter les véhicules.
+Update permet de modifier les informations.
+Delete permet de supprimer un véhicule.
+-->
+<hr>
+<!-- _class: light -->
+<h1 id="conception-du-projet">CONCEPTION DU PROJET</h1>
+<h2 id="diagrammes-et-modèles">Diagrammes et modèles</h2>
+<ul>
+<li><strong>Diagramme de cas d'utilisation :</strong> présente les fonctionnalités accessibles à l'utilisateur.</li>
+<li><strong>Diagramme de classes :</strong> décrit les classes et leurs relations.</li>
+<li><strong>Diagramme de séquence :</strong> présente les étapes d'une interaction entre l'utilisateur et le système.</li>
+<li><strong>Modèle de données :</strong> représente la structure des informations stockées dans le fichier JSON.</li>
+</ul>
+<h2 id="organisation-du-système">Organisation du système</h2>
+<ul>
+<li>Frontend : interface utilisateur.</li>
+<li>Backend : traitement des opérations.</li>
+<li>Stockage : fichier JSON contenant les véhicules.</li>
+</ul>
+<!--
+La conception permet de préparer le développement du projet.
+Le diagramme de cas d'utilisation présente les actions possibles.
+Le diagramme de classes décrit la structure du système.
+Le diagramme de séquence montre le déroulement des opérations.
+Le modèle de données présente l'organisation des informations.
+-->
+<hr>
+<!-- _class: content -->
+<h1 id="réalisation">RÉALISATION</h1>
+<h2 id="stack-technique">Stack Technique</h2>
+<h3 id="backend">Backend</h3>
+<ul>
+<li>🐘 <strong>PHP</strong> — Langage de programmation côté serveur.</li>
+<li>📦 <strong>Programmation orientée objet (POO)</strong> — Organisation du code avec des classes.</li>
+<li>📄 <strong>JSON</strong> — Stockage des informations des véhicules.</li>
+<li>🔗 <strong>API PHP</strong> — Communication et traitement des requêtes.</li>
+</ul>
+<h3 id="frontend">Frontend</h3>
+<ul>
+<li>🌐 <strong>HTML5</strong> — Structure des pages web.</li>
+<li>🎨 <strong>Tailwind CSS</strong> — Mise en forme et design de l'interface.</li>
+<li>⚡ <strong>JavaScript</strong> — Gestion des interactions et des opérations CRUD.</li>
+</ul>
+<h3 id="outils-utilisés">Outils utilisés</h3>
+<ul>
+<li>💻 <strong>Visual Studio Code</strong> — Environnement de développement.</li>
+<li>🌿 <strong>Git &amp; GitHub</strong> — Gestion des versions du projet.</li>
+</ul>
+<!--
+Maintenant, je présente les technologies utilisées.
+Pour le Backend, j'ai utilisé PHP pour gérer les opérations.
+J'ai organisé le code avec la programmation orientée objet.
+Les données sont stockées dans un fichier JSON.
+Pour le Frontend, j'ai utilisé HTML, Tailwind CSS et JavaScript.
+J'ai également utilisé Git et GitHub pour gérer les versions du projet.
+-->
+<hr>
+<!-- _class: dark -->
+<h1 id="conclusion">CONCLUSION</h1>
+<h2 id="bilan-du-projet">Bilan du projet</h2>
+<p>Ce projet nous a permis de développer une application web de gestion des véhicules afin de simplifier l'organisation, la consultation et la gestion des informations.</p>
+<h2 id="résultats-obtenus">Résultats obtenus</h2>
+<ul>
+<li>Ajout et enregistrement des véhicules.</li>
+<li>Consultation de la liste des véhicules.</li>
+<li>Modification des informations.</li>
+<li>Suppression des véhicules.</li>
+<li>Interface utilisateur simple et intuitive.</li>
+</ul>
+<h2 id="perspectives">Perspectives</h2>
+<ul>
+<li>Ajouter un système d'authentification.</li>
+<li>Ajouter une recherche et des filtres avancés.</li>
+<li>Améliorer le tableau de bord.</li>
+<li>Utiliser une base de données MySQL.</li>
+</ul>
+<h1 id="merci-pour-votre-attention-">MERCI POUR VOTRE ATTENTION !</h1>
+<!--
+Pour conclure, mon projet permet de gérer facilement les véhicules.
+Il regroupe les principales opérations CRUD dans une seule application.
+Ce projet m'a permis de mettre en pratique mes connaissances en PHP, JavaScript et Tailwind CSS.
+Dans le futur, je pourrai ajouter de nouvelles fonctionnalités.
+Je vous remercie pour votre attention.
+Avez-vous des questions ?
+-->
+
+</body>
+</html>

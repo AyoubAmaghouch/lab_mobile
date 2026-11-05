@@ -4,96 +4,66 @@ theme: default
 paginate: true
 size: 16:9
 style: |
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-  :root {
-    --primary: #4F46E5;
-    --primary-light: #818CF8;
-    --accent: #EC4899;
-    --dark-bg: #0F172A;
-    --dark-surface: #1E293B;
-    --light-bg: #F8FAFC;
-    --light-surface: #FFFFFF;
-    --text-light: #F1F5F9;
-    --text-dark: #1E293B;
-    --muted: #94A3B8;
-  }
-
   section {
-    background: radial-gradient(circle at top right, #1e1b4b, var(--dark-bg));
-    color: var(--text-light);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    padding: 45px 65px;
+    background: radial-gradient(circle at top right, #1e1b4b, #0F172A);
+    color: #F1F5F9;
+    font-family: Arial, sans-serif;
+    padding: 45px 60px;
     font-size: 20px;
   }
 
   section.light {
     background: linear-gradient(135deg, #F8FAFC, #EEF2F6);
-    color: var(--text-dark);
+    color: #1E293B;
   }
 
   h1 {
-    font-size: 2.6em;
+    color: #A5B4FC;
+    font-size: 2.4em;
     font-weight: 800;
-    letter-spacing: -0.02em;
-    background: linear-gradient(120deg, #818CF8, #F472B6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.2em;
   }
 
   h2 {
-    font-size: 1.85em;
-    font-weight: 700;
-    color: var(--primary-light);
-    border-bottom: 3px solid var(--primary);
+    color: #818CF8;
+    border-bottom: 3px solid #4F46E5;
     padding-bottom: 8px;
-    margin-bottom: 0.5em;
+    font-size: 1.7em;
   }
 
   section.light h2 {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
+    color: #4F46E5;
   }
 
   h3 {
-    font-size: 1.25em;
-    font-weight: 600;
     color: #F472B6;
-    margin-top: 0.6em;
-    margin-bottom: 0.3em;
-  }
-
-  section.light h3 {
-    color: #BE185D;
-  }
-
-  p, li {
-    line-height: 1.6;
-    font-size: 1.05em;
-  }
-
-  li::marker {
-    color: var(--primary-light);
   }
 
   strong {
     color: #F472B6;
-    font-weight: 600;
   }
 
   section.light strong {
     color: #BE185D;
   }
 
+  li {
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  li::marker {
+    color: #818CF8;
+  }
+
   .meta-box {
-    margin-top: 35px;
-    padding: 16px 24px;
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(129, 140, 248, 0.3);
+    margin-top: 45px;
+    padding: 20px 25px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid #6366F1;
     border-radius: 12px;
-    display: inline-flex;
-    gap: 40px;
+    display: flex;
+    gap: 60px;
+    width: fit-content;
   }
 
   .meta-item {
@@ -102,67 +72,14 @@ style: |
   }
 
   .meta-label {
-    font-size: 0.8em;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
+    color: #94A3B8;
+    font-size: 0.75em;
   }
 
   .meta-value {
-    font-size: 1.15em;
-    font-weight: 600;
-    color: #FFFFFF;
-  }
-
-  code {
-    background: rgba(99, 102, 241, 0.18);
-    color: #E0E7FF;
-    padding: 2px 7px;
-    border-radius: 5px;
-    font-size: 0.9em;
-  }
-
-  section.light code {
-    background: rgba(99, 102, 241, 0.12);
-    color: #3730A3;
-  }
-
-  pre code {
-    background: transparent;
-    padding: 0;
-  }
-
-  blockquote {
-    border-left: 4px solid var(--accent);
-    padding: 8px 18px;
-    background: rgba(236, 72, 153, 0.08);
-    border-radius: 0 8px 8px 0;
-    margin: 15px 0;
-    font-style: italic;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    font-size: 0.9em;
-  }
-
-  th {
-    background: var(--primary);
     color: white;
-    padding: 10px 14px;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  td {
-    padding: 8px 14px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-  }
-
-  section.light td {
-    border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    font-weight: bold;
+    font-size: 1.1em;
   }
 
   .grid-2 {
@@ -172,31 +89,59 @@ style: |
   }
 
   .card {
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(129, 140, 248, 0.25);
-    border-radius: 10px;
-    padding: 16px 20px;
+    background: rgba(30, 41, 59, 0.75);
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    border-radius: 12px;
+    padding: 15px 20px;
   }
 
   section.light .card {
-    background: #FFFFFF;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    background: white;
+    border: 1px solid #CBD5E1;
+  }
+
+  code {
+    background: rgba(99, 102, 241, 0.2);
+    color: #C7D2FE;
+    padding: 3px 7px;
+    border-radius: 5px;
+  }
+
+  section.light code {
+    color: #3730A3;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.85em;
+  }
+
+  th {
+    background: #4F46E5;
+    color: white;
+    padding: 10px;
+  }
+
+  td {
+    padding: 9px;
+    border-bottom: 1px solid #64748B;
   }
 
 ---
 
-# 📑 Lab Planning : Standardisation des Labs
+<!-- _class: lead -->
 
-> Guide méthodologique et plan commun pour toutes nos présentations de labs
+# Lab Planning
+
+## Standardisation des présentations des Labs techniques
 
 <div class="meta-box">
   <div class="meta-item">
-    <span class="meta-label">👨‍💻 Réalisé par</span>
+    <span class="meta-label">RÉALISÉ PAR</span>
     <span class="meta-value">Ayoub Amaghouch</span>
   </div>
   <div class="meta-item">
-    <span class="meta-label">👨‍🏫 Encadré par</span>
+    <span class="meta-label">ENCADRÉ PAR</span>
     <span class="meta-value">Fouad Essarraj</span>
   </div>
 </div>
@@ -205,39 +150,76 @@ style: |
 
 <!-- _class: light -->
 
-## Plan de Présentation
+## Slide 2 — Plan de présentation
 
-1. **Introduction & Stack Technique**
-   - Contexte de notre classe et panorama technologique
-2. **Définitions Clés**
-   - Différence entre labs techniques et labs méthodologiques
-3. **Problème Rencontré**
-   - Pourquoi ce lab planning est indispensable pour notre groupe
-4. **Solution & Plan d'Action**
-   - La structure unifiée et le template à appliquer
+Cette présentation est organisée en deux grandes parties :
+
+<div class="grid-2">
+<div class="card">
+
+### Partie 1 — Plan générique
+
+1. Présentation du plan
+2. Stack technique
+3. Définitions
+4. Problème et besoin
+5. Solution et pratique
+6. Résultats et conclusion
+
+</div>
+<div class="card">
+
+### Partie 2 — Exemple pratique
+
+**Application du plan à un Lab :**
+
+Introduction à Tailwind CSS.
+
+- Présentation du sujet.
+- Technologies utilisées.
+- Notions essentielles.
+- Problème à résoudre.
+- Réalisation pratique.
+- Résultat obtenu.
+
+</div>
+</div>
 
 ---
 
-## 🛠️ Stack Technique de Nos Labs
+## Slide 3 — Stack technique
 
-Nos futurs labs porteront sur l'ensemble de notre cursus technique :
+Les outils utilisés pour préparer et présenter les Labs :
 
 <div class="grid-2">
-<div>
+<div class="card">
 
-### 🌐 Backend & Données
-- **PHP** : Langage backend serveur
-- **Laravel** : Framework applicatif backend robuste
-- **MySQL / JSON** : Base de données relationnelle et gestion JSON
+### Markdown
+
+- Langage de balisage léger.
+- Permet de structurer le contenu.
+- Utilisé pour rédiger les diapositives.
+
+### Marp
+
+- Outil de création de présentations.
+- Transforme Markdown en diapositives.
+- Permet l'exportation en PDF.
 
 </div>
-<div>
+<div class="card">
 
-### 📱 Mobile & 🎨 Frontend
-- **PHP Native (NativePHP)** : Librairie pour applications mobiles natives avec PHP
-- **Kotlin (Android)** : Développement mobile natif Android
-- **Alpine.js** : Réactivité front-end et logique client légère
-- **Tailwind CSS & Preline UI** : Framework CSS utilitaire et framework de composants UI
+### Visual Studio Code
+
+- Éditeur de code.
+- Permet de modifier les fichiers Markdown.
+- Facilite l'organisation du projet.
+
+### Git et GitHub
+
+- Git : gestion des versions.
+- GitHub : hébergement du dépôt.
+- Permettent de partager le travail.
 
 </div>
 </div>
@@ -246,70 +228,256 @@ Nos futurs labs porteront sur l'ensemble de notre cursus technique :
 
 <!-- _class: light -->
 
-## 📖 Définitions Clés : Deux Types de Labs
+## Slide 4 — Définitions
 
-Pour structurer efficacement notre travail, nous distinguons 2 catégories :
+Quelques notions importantes pour comprendre le travail :
+
+| Notion | Définition |
+|---|---|
+| Lab | Travail pratique consacré à un sujet précis. |
+| Stack technique | Ensemble des technologies et outils utilisés. |
+| Markdown | Syntaxe simple pour structurer du texte. |
+| Marp | Outil qui transforme Markdown en présentation. |
+| Quick Start | Guide rapide pour commencer à utiliser une technologie. |
+| Hello World | Premier exemple simple permettant de tester une technologie. |
+| Git | Système de gestion de versions. |
+| GitHub | Plateforme d'hébergement de dépôts Git. |
+
+---
+
+## Slide 5 — Problème et besoin
+
+### Problème constaté
+
+Les présentations des Labs peuvent manquer d'organisation et de cohérence.
 
 <div class="grid-2">
 <div class="card">
 
-### ⚙️ 1. Les Labs Techniques
-- *Exemples* : **Laravel, Kotlin, Alpine.js, PHP, PHP Native (Mobile)**
-- *Objectif* : Installer, coder, exécuter.
-- *Règle obligatoire* : **Doivent impérativement inclure un Quick Start & un Hello World fonctionnel**.
+### Difficultés
+
+- Absence de plan commun.
+- Définitions parfois insuffisantes.
+- Problème et besoin non expliqués.
+- Pratique et démonstration peu détaillées.
+- Résultats difficiles à identifier.
 
 </div>
 <div class="card">
 
-### 📋 2. Les Labs Méthodologiques
-- *Exemples* : **Lab Planning, Architecture, Conception**
-- *Objectif* : Organiser, cadrer, modéliser.
-- *Règle* : **Pas de Hello World de code requis**, mais des règles, des processus et des livrables concrets.
+### Besoins
+
+- Avoir une structure commune.
+- Faciliter la compréhension.
+- Présenter les notions importantes.
+- Ajouter des exemples pratiques.
+- Identifier les compétences acquises.
 
 </div>
 </div>
 
----
-
-## ⚠️ Problème : Pourquoi ce Lab Planning ?
-
-### 😵 Le constat en classe : *« Chacun fait ce qu'il veut »*
-
-| Problème Actuel | Conséquence Directe |
-|:---|:---|
-| **Aucune structure commune** | Chaque étudiant invente son propre plan de présentation |
-| **Pas de définitions des notions** | L'audience ne comprend pas les termes spécifiques |
-| **Absence d'explication du besoin** | On présente des solutions sans expliquer le problème résolu |
-| **Labs techniques sans Hello World** | Les camarades ne peuvent pas tester rapidement |
-| **Confusion entre technique et méthode** | On mélange code et méthodologie sans cohérence |
-
-> *« Ce manque d'harmonisation freine la progression collective de notre classe. »*
+> Un plan commun permet d'améliorer la clarté et la qualité des présentations.
 
 ---
 
 <!-- _class: light -->
 
-## 💡 Solution : La Règle d'Or de Chaque Lab
+## Slide 6 — Solution et pratique
 
-Désormais, chaque lab présenté en classe suit rigoureusement ces 6 étapes :
+### Le plan générique à appliquer
 
-1. 🏷️ **Slide 1 — Titre, Étudiant & Encadrant** (*Mesbahi Mohammed Yassir / Fouad Essarraj*)
-2. 📋 **Slide 2 — Plan de Présentation** (*Intro & Stack, Définitions, Problème, Solution*)
-3. 🛠️ **Slide 3 — Stack Technique** (*Rôle précis des technologies mobilisées*)
-4. 📖 **Slide 4 — Définitions** (*Explication de ce que tout développeur ne sait pas*)
-5. ⚠️ **Slide 5 — Problème** (*Pourquoi ce lab précis est nécessaire*)
-6. 🚀 **Slide 6+ — Solution Adaptée** :
-   - *Si Lab Technique* ➔ **Quick Start + Hello World obligatoire**
-   - *Si Lab Méthodologique* ➔ **Processus, règles et modèles concrets**
+| Slide | Partie | Contenu attendu |
+|---|---|---|
+| 1 | Page de garde | Titre, apprenant, encadrant |
+| 2 | Plan | Parties de la présentation |
+| 3 | Stack technique | Technologies et rôles |
+| 4 | Définitions | Notions importantes |
+| 5 | Problème et besoin | Contexte et utilité |
+| 6 | Solution et pratique | Étapes, exemples et tests |
+| 7 | Résultats et conclusion | Résultat et apprentissages |
+
+### Adaptation selon le sujet
+
+- **Lab technique :** installation, configuration, code et tests.
+- **Lab méthodologique :** étapes, organisation, règles et livrables.
+
+Le contenu doit toujours être adapté au travail demandé.
 
 ---
 
-## 📦 Livrable Pratique : `template-lab.md`
+## Slide 7 — Résultats et conclusion
 
-Pour que toute la classe applique la solution sans difficulté, un template universel est mis à disposition :
+### Résultats attendus
 
-- 📁 **Fichier ressource** : `template-lab.md` (disponible à la racine du projet)
-- ⚙️ **Adaptabilité automatique** :
-  - Section technique avec zone *Quick Start / Hello World* pré-configurée
-  - Variantes prévues pour les labs méthodologiques
-- ⏱️ **Gain de temps** : Prêt en 2 minutes pour n'importe quel sujet (Laravel, Kotlin, Alpine...)
+- Une structure commune pour tous les Labs.
+- Des présentations plus claires et organisées.
+- Une meilleure compréhension des technologies.
+- Une partie pratique adaptée à chaque sujet.
+- Une conclusion qui présente les acquis.
+
+### Conclusion
+
+Le plan générique constitue un guide commun pour préparer les présentations des Labs.
+
+Il permet de conserver une organisation cohérente tout en laissant la possibilité d'adapter le contenu selon le sujet.
+
+---
+
+<!-- _class: lead -->
+
+# Exemple pratique
+
+## Application du plan à un Lab
+
+### Introduction à Tailwind CSS
+
+Démonstration de l'application des sept étapes du plan générique.
+
+---
+
+## Exemple — Slide 1 : Page de garde
+
+# Lab — Introduction à Tailwind CSS
+
+### Découverte et utilisation des classes utilitaires
+
+- Apprenant : Ayoub Amaghouch
+- Encadrant : Fouad Essarraj
+
+---
+
+<!-- _class: light -->
+
+## Exemple — Slide 2 : Plan
+
+1. Présentation de Tailwind CSS.
+2. Technologies et outils utilisés.
+3. Définitions essentielles.
+4. Problème et besoin.
+5. Installation et configuration.
+6. Création d'une interface.
+7. Résultat et conclusion.
+
+---
+
+## Exemple — Slide 3 : Stack technique
+
+<div class="grid-2">
+<div class="card">
+
+### HTML5
+
+Structure de la page web.
+
+### Tailwind CSS
+
+Mise en forme avec des classes utilitaires.
+
+</div>
+<div class="card">
+
+### Visual Studio Code
+
+Édition du code source.
+
+### Navigateur web
+
+Affichage et test du résultat.
+
+</div>
+</div>
+
+---
+
+<!-- _class: light -->
+
+## Exemple — Slide 4 : Définitions
+
+| Notion | Définition |
+|---|---|
+| CSS | Langage utilisé pour styliser les pages web. |
+| Framework CSS | Ensemble d'outils facilitant la création des styles. |
+| Tailwind CSS | Framework CSS basé sur des classes utilitaires. |
+| Classe utilitaire | Classe qui applique une propriété de style précise. |
+| Responsive Design | Adaptation de l'interface aux différentes tailles d'écran. |
+
+---
+
+## Exemple — Slide 5 : Problème et besoin
+
+### Problème
+
+La création d'une interface web nécessite souvent l'écriture de nombreuses règles CSS.
+
+### Difficultés
+
+- Répétition des règles CSS.
+- Temps de développement.
+- Gestion des styles.
+- Adaptation aux écrans mobiles.
+
+### Besoin
+
+Utiliser une approche qui facilite la création et l'organisation des interfaces web.
+
+---
+
+<!-- _class: light -->
+
+## Exemple — Slide 6 : Solution et pratique
+
+### Étape 1 — Préparer le projet
+
+Créer un fichier `index.html` et configurer Tailwind CSS selon la méthode choisie.
+
+### Étape 2 — Ajouter une interface
+
+```html
+<div class="bg-indigo-600 p-6 rounded-xl">
+  <h1 class="text-white text-2xl font-bold">
+    Bienvenue !
+  </h1>
+
+  <p class="text-indigo-100 mt-2">
+    Mon premier exemple avec Tailwind CSS.
+  </p>
+</div>
+```
+
+### Étape 3 — Tester
+
+- Ouvrir la page dans un navigateur.
+- Vérifier les couleurs et les espacements.
+- Tester l'affichage sur différentes tailles d'écran.
+
+---
+
+## Exemple — Slide 7 : Résultats et conclusion
+
+### Résultat obtenu
+
+Une interface simple avec :
+
+- Un arrière-plan coloré.
+- Un titre blanc.
+- Un espacement intérieur.
+- Des coins arrondis.
+
+### Compétences acquises
+
+- Comprendre le principe des classes utilitaires.
+- Appliquer des styles directement dans le HTML.
+- Créer une première interface avec Tailwind CSS.
+- Tester le résultat dans un navigateur.
+
+### Conclusion
+
+Ce Lab permet de découvrir les bases de Tailwind CSS et de comprendre comment l'utiliser dans un projet web.
+
+---
+
+<!-- _class: lead -->
+
+# Merci pour votre attention !
+
+## Questions ?
