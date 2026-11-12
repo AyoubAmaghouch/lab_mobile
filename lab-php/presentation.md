@@ -3,396 +3,568 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
-title: "Lab PHP — erreurs, namespaces et traits"
-description: "Présentation des notions PHP appliquées à la gestion des véhicules"
 style: |
   section {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
     background: #f8fafc;
-    color: #172033;
-    padding: 46px 58px;
-    font-size: 22px;
-  }
-  h1, h2 {
-    color: #123b5d;
+    padding: 38px 52px;
+    font-size: 16px;
+    line-height: 1.45;
   }
   h1 {
-    font-size: 1.8em;
+    color: #0f172a;
+    font-size: 27px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 6px;
   }
   h2 {
-    border-bottom: 2px solid #d5e4ef;
-    padding-bottom: 8px;
+    color: #0284c7;
+    font-size: 19px;
+    margin: 8px 0 8px 0;
   }
-  strong {
-    color: #087e8b;
+  h3 {
+    color: #0369a1;
+    font-size: 15.5px;
+    margin: 6px 0 4px 0;
   }
-  code {
-    color: #9b2451;
-    background: #edf2f7;
+  p {
+    margin: 0 0 8px 0;
   }
-  pre {
-    font-size: 0.68em;
-    line-height: 1.2;
+  ul, ol {
+    margin: 4px 0 8px 0;
+    padding-left: 22px;
   }
-  section.cover, section.final {
-    background: linear-gradient(135deg, #102a43, #087e8b);
-    color: #ffffff;
-    text-align: center;
-    justify-content: center;
+  li {
+    margin-bottom: 3px;
   }
-  section.cover h1, section.final h1 {
-    color: #ffffff;
-    font-size: 2.2em;
-  }
-  section.cover h2, section.final h2 {
-    color: #c8f2f2;
-    border: 0;
-  }
-  section.cols {
+  .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    column-gap: 30px;
-    align-items: start;
+    gap: 16px;
   }
-  section.cols h1 {
-    grid-column: 1 / -1;
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card-primary {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+  }
+  .card-alert {
+    background: #fef2f2;
+    border-color: #fecaca;
+  }
+  .card-success {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-emerald { background: #d1fae5; color: #065f46; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-purple { background: #f3e8ff; color: #6b21a8; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  pre {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.35;
+    margin: 4px 0 8px 0;
+  }
+  code {
+    font-family: Consolas, 'Courier New', monospace;
+  }
+  section.cover {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 35px 40px;
+  }
+  section.cover img {
+    height: 55px;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 6px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    display: inline-block;
+    margin: 0 16px 16px 16px;
+    vertical-align: middle;
+  }
+  section.cover h1 {
+    color: #ffffff;
+    font-size: 34px;
+    border-bottom: 3px solid #38bdf8;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  section.cover h2 {
+    color: #7dd3fc;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .cover-meta {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 14px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 36px;
+    text-align: left;
+    font-size: 14.5px;
+    color: #e2e8f0;
+  }
+  .cover-meta strong {
+    color: #ffffff;
   }
   table {
     width: 100%;
-    font-size: 0.78em;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 6px 0;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+    text-align: left;
   }
   th {
-    background: #dcecf2;
-    color: #123b5d;
-  }
-  td, th {
-    padding: 9px;
-    border: 1px solid #cbd5e1;
+    background: #e2e8f0;
+    color: #0f172a;
+    font-weight: 600;
   }
 ---
 
 <!-- _class: cover -->
+<!-- _paginate: false -->
 
-# PHP : ALLER PLUS LOIN
+![OFPPT](images/ofppt_logo.png) ![SOLICODE](images/logo_solicode.png)
 
-## Erreurs & exceptions · Namespace · Trait
+# LAB PHP : NOTIONS AVANCÉES
 
-**Application support : Gestion des Véhicules V2**
+## Exceptions, Namespaces & Traits en PHP Native
 
-Lab de découverte — Solicode
-
-<!--
-Bonjour. Dans ce lab, je présente trois notions PHP qui complètent le cours.
-Pour chacune, je vais expliquer son rôle et montrer comment l'utiliser dans
-une application de gestion des véhicules.
--->
-
----
-
-# Objectifs du lab
-
-À la fin de cette présentation, je peux :
-
-- **Détecter et traiter** une erreur sans interrompre l'application brutalement.
-- **Organiser** les classes PHP avec des namespaces.
-- **Réutiliser** un comportement commun avec un trait.
-- Appliquer ces notions au backend PHP de **Gestion des Véhicules V2**.
-
-**Contexte technique :** API PHP, opérations CRUD et données de véhicules en JSON.
-
-<!--
-Le but n'est pas seulement de connaître la syntaxe.
-Je veux aussi comprendre quand ces outils rendent le projet plus fiable
-et plus facile à maintenir.
--->
+<div class="cover-meta">
+  <div>
+    <strong>Projet technique :</strong> Gestion des Véhicules V2<br>
+    <strong>Formation :</strong> Développeur Full Stack
+  </div>
+  <div>
+    <strong>Nom de l'apprenant :</strong> Ayoub Amaghouch<br>
+    <strong>Encadrant :</strong> ES-Sarraj Fouad
+  </div>
+</div>
 
 ---
 
-<!-- _class: cols -->
+# PLAN DE PRÉSENTATION
 
-# 01 — Erreurs et exceptions
+<div class="grid-2">
+  <div class="card card-primary">
+    <h3>1. Introduction & Stack Technique</h3>
+    <ul>
+      <li>Contexte du projet <strong>Gestion des Véhicules V2</strong></li>
+      <li>Environnement backend en <strong>PHP Native</strong></li>
+    </ul>
 
-## Pourquoi les gérer ?
+    <h3 style="margin-top: 10px;">2. Définitions des Notions Clés</h3>
+    <ul>
+      <li><strong>Gestion des erreurs & exceptions :</strong> robustesse</li>
+      <li><strong>Namespaces :</strong> organisation modulaire</li>
+      <li><strong>Traits :</strong> réutilisation horizontale de code</li>
+    </ul>
+  </div>
 
-Une API peut recevoir un JSON invalide, ne pas trouver un véhicule ou rencontrer
-un problème de lecture de fichier.
+  <div class="card">
+    <h3>3. Problème Réel Rencontré</h3>
+    <ul>
+      <li>Plantages serveur sur données invalides (kilométrage, plaque)</li>
+      <li>Collisions de noms et désorganisation du code</li>
+      <li>Duplication de logique transversale (logging)</li>
+    </ul>
 
-- Donner une réponse compréhensible au client.
-- Choisir un code HTTP adapté.
-- Enregistrer les détails utiles au diagnostic.
-- Éviter d'afficher des détails internes à l'utilisateur.
-
-## Deux notions à distinguer
-
-- **Erreur PHP :** problème signalé par le moteur, par exemple une erreur de type.
-- **Exception :** objet lancé volontairement avec `throw`, puis traité avec `catch`.
-- `Throwable` est l'interface commune aux erreurs PHP et aux exceptions.
-
-**Important :** on ne doit pas essayer de continuer après toutes les erreurs.
-
-<!--
-Une erreur non traitée peut interrompre une requête.
-Une exception permet de signaler un cas anormal et de le traiter à un endroit adapté.
-Il faut distinguer les problèmes récupérables des erreurs graves.
--->
+    <h3 style="margin-top: 10px;">4. Solution & Démonstrations Pratiques</h3>
+    <ul>
+      <li>Quick Start & Démonstration "Hello World"</li>
+      <li>Exemple 1 : <code>VehicleValidationException</code></li>
+      <li>Exemple 2 : Namespaces <code>App\Models</code> & <code>App\Services</code></li>
+      <li>Exemple 3 : Trait transversal <code>LoggableTrait</code></li>
+    </ul>
+  </div>
+</div>
 
 ---
 
-# Exemple — JSON de véhicule invalide
+# 1. INTRODUCTION & STACK TECHNIQUE
 
-`JSON_THROW_ON_ERROR` transforme l'échec du décodage en exception `JsonException`.
+<div class="grid-2">
+  <div class="card">
+    <h3>🚗 Projet : Gestion des Véhicules V2</h3>
+    <p>Application web permettant d'administrer une flotte automobile à travers un cycle complet <strong>CRUD</strong> (*Create, Read, Update, Delete*).</p>
+    <ul>
+      <li>Ajout d'un nouveau véhicule (marque, modèle, plaque).</li>
+      <li>Consultation du catalogue et des statuts.</li>
+      <li>Modification du kilométrage et de la disponibilité.</li>
+      <li>Suppression sécurisée d'un véhicule retiré.</li>
+    </ul>
+  </div>
+
+  <div class="card card-primary">
+    <h3>⚙️ Stack Technique du Projet</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 30%;">Couche</th>
+          <th style="width: 35%;">Technologie</th>
+          <th style="width: 35%;">Rôle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Frontend</strong></td>
+          <td>HTML5 + Tailwind + JS</td>
+          <td>Interface & Fetch API</td>
+        </tr>
+        <tr>
+          <td><strong>Backend</strong></td>
+          <td>PHP Native (PHP 8.5)</td>
+          <td>Logique métier & API</td>
+        </tr>
+        <tr>
+          <td><strong>Données</strong></td>
+          <td>Fichier JSON</td>
+          <td>Stockage autonome</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 13px; margin-top: 6px; color: #475569;">
+      <strong>Objectif du Lab :</strong> professionnaliser le code backend PHP Native grâce aux exceptions, namespaces et traits sans dépendre d'un gros framework.
+    </p>
+  </div>
+</div>
+
+---
+
+# 2. DÉFINITIONS DES NOTIONS CLÉS
+
+<div class="grid-3">
+  <div class="card">
+    <span class="badge badge-red">Fiabilité</span>
+    <h3>1. Exceptions</h3>
+    <p>Mécanisme orienté objet servant à signaler et traiter les situations exceptionnelles (erreurs métier ou techniques).</p>
+    <ul>
+      <li><code>throw new Exception()</code> : déclenche l'alerte.</li>
+      <li><code>try { ... } catch { ... }</code> : capture l'erreur sans interrompre le serveur.</li>
+      <li>Remplace les erreurs fatales par des réponses JSON contrôlées.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="badge badge-blue">Structure</span>
+    <h3>2. Namespaces</h3>
+    <p>Espaces de noms permettant de compartimenter virtuellement les classes et d'éviter les collisions.</p>
+    <ul>
+      <li><code>namespace App\Models;</code> : déclare le sous-espace.</li>
+      <li><code>use App\Models\Vehicle;</code> : importe la classe souhaitée.</li>
+      <li>Indispensable pour structurer une application en modules clairs.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="badge badge-emerald">Modularité</span>
+    <h3>3. Traits</h3>
+    <p>Composants réutilisables permettant d'injecter des méthodes dans plusieurs classes indépendantes.</p>
+    <ul>
+      <li><code>trait LoggableTrait { ... }</code> : définit le comportement.</li>
+      <li><code>use LoggableTrait;</code> dans la classe.</li>
+      <li>Évite la duplication de code sans recours à l'héritage multiple.</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 3. PROBLÈME RÉEL RENCONTRÉ DANS LE PROJET
+
+Dans un script PHP débutant, les opérations CRUD sur les véhicules rencontrent trois limites majeures :
+
+<div class="grid-3">
+  <div class="card card-alert">
+    <span class="badge badge-red">Problème 1</span>
+    <h3 style="color: #991b1b;">Crash sur Données Invalides</h3>
+    <p>Si l'utilisateur envoie un kilométrage négatif (<code>-500</code>) ou une plaque vide, le script continue ou génère une erreur PHP brute :</p>
+    <ul>
+      <li>L'API s'arrête brutalement (erreur 500).</li>
+      <li>Le frontend JavaScript reçoit du HTML d'erreur au lieu d'un JSON valide.</li>
+    </ul>
+  </div>
+
+  <div class="card card-alert">
+    <span class="badge badge-red">Problème 2</span>
+    <h3 style="color: #991b1b;">Collisions de Noms</h3>
+    <p>Toutes les classes vivent dans l'espace global PHP sans namespace :</p>
+    <ul>
+      <li>Impossible d'avoir deux classes <code>Vehicle</code> ou <code>Validator</code> sans conflit fatal : <em>"Cannot declare class..."</em>.</li>
+      <li>Code difficile à maintenir et non conforme aux standards PSR.</li>
+    </ul>
+  </div>
+
+  <div class="card card-alert">
+    <span class="badge badge-red">Problème 3</span>
+    <h3 style="color: #991b1b;">Duplication du Logging</h3>
+    <p>Chaque action CRUD doit être journalisée (date, action, succès) :</p>
+    <ul>
+      <li>Le code d'écriture dans <code>history.log</code> est recopié dans chaque contrôleur et classe.</li>
+      <li>Toute modification du format de log oblige à modifier 5 fichiers.</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 4. SOLUTION — QUICK START & HELLO WORLD
+
+Exemple autonome démontrant la synergie des 3 notions en un seul fichier exécutable :
 
 ```php
 <?php
+namespace App\Demo; // 1. Namespace : isole le code dans son espace propre
 
-try {
-    $vehicle = json_decode(
-        $requestBody,
-        true,
-        512,
-        JSON_THROW_ON_ERROR
-    );
+trait FormatterTrait { // 2. Trait : injecte une méthode de formatage réutilisable
+    public function formatText(string $txt): string { return strtoupper(trim($txt)); }
+}
 
-    if (!is_array($vehicle) || empty($vehicle['registration'])) {
-        http_response_code(422);
-        echo json_encode(['error' => 'Immatriculation obligatoire']);
-    } else {
-        // Continuer la création du véhicule.
+class DemoException extends \Exception {} // 3. Exception personnalisée
+
+class VehicleDemo {
+    use FormatterTrait;
+    public function valider(string $plaque): string {
+        if (empty($plaque)) { throw new DemoException("La plaque est obligatoire !"); }
+        return $this->formatText($plaque);
     }
-} catch (JsonException $exception) {
-    error_log($exception->getMessage());
-    http_response_code(400);
-    echo json_encode(['error' => 'Le JSON envoyé est invalide']);
+}
+
+// Test et capture
+try {
+    $demo = new VehicleDemo();
+    echo "Plaque formatée : " . $demo->valider("  12345-a-1  ") . "\n";
+    $demo->valider(""); // Déclenche l'exception
+} catch (DemoException $e) {
+    echo "Erreur capturée proprement : " . $e->getMessage() . "\n";
 }
 ```
 
-**Résultat attendu :** JSON invalide → réponse `400`; champ métier manquant → `422`.
-
-<!--
-Ici, l'API décode le corps reçu.
-Si le JSON n'est pas valide, l'exception est interceptée.
-Le détail technique est journalisé, mais la réponse envoyée au client reste claire.
--->
-
 ---
 
-# Exemple — véhicule introuvable
+# 4.1 SOLUTION : GESTION DES ERREURS & EXCEPTIONS
 
-On peut créer une exception dédiée au domaine du projet :
-
-```php
-<?php
+<div class="grid-2">
+  <div>
+    <h3>Classe d'Exception Dédiée</h3>
+    <pre><code class="language-php">&lt;?php
 namespace App\Exceptions;
 
-use RuntimeException;
+class VehicleValidationException extends \Exception {
+    private array $erreurs;
 
-class VehicleNotFoundException extends RuntimeException
-{
-}
-```
+    public function __construct(array $erreurs) {
+        parent::__construct("Données véhicule invalides");
+        $this->erreurs = $erreurs;
+    }
 
-Le contrôleur la traite précisément :
-
-```php
-try {
-    $vehicle = $vehicleRepository->findOrFail($id);
-} catch (VehicleNotFoundException $exception) {
-    http_response_code(404);
-    echo json_encode(['error' => 'Véhicule introuvable']);
-}
-```
-
-**À tester :** demander un identifiant existant, puis un identifiant absent.
-
-<!--
-Une exception personnalisée exprime clairement le problème métier.
-On peut alors renvoyer 404 pour le véhicule absent, au lieu de renvoyer
-une erreur générale qui ne décrit pas correctement la situation.
--->
-
----
-
-# 02 — Namespace
-
-Un namespace est un **espace de noms** qui organise les classes et évite les collisions.
-
-```php
-<?php
-namespace App\Models;
-
-class Vehicle
-{
-    public function __construct(
-        public string $registration,
-        public string $brand
-    ) {
+    public function getErreurs(): array {
+        return $this->erreurs;
     }
 }
-```
+</code></pre>
+  </div>
 
-Dans un contrôleur, on importe la classe :
+  <div>
+    <h3>Traitement Sécurisé dans l'API CRUD</h3>
+    <pre><code class="language-php">&lt;?php
+use App\Exceptions\VehicleValidationException;
 
-```php
-<?php
-namespace App\Http\Controllers;
+try {
+    $km = (int)($_POST['km'] ?? -1);
+    if ($km &lt; 0) {
+        throw new VehicleValidationException(["km" =&gt; "Le kilométrage doit être positif."]);
+    }
+    // Sauvegarde dans le fichier JSON...
+    echo json_encode(["success" =&gt; true]);
+} catch (VehicleValidationException $e) {
+    http_response_code(400);
+    echo json_encode(["success" =&gt; false, "erreurs" =&gt; $e-&gt;getErreurs()]);
+}
+</code></pre>
+  </div>
+</div>
 
-use App\Models\Vehicle;
-use App\Repositories\VehicleRepository;
-```
-
-`App\Models\Vehicle` est le nom complet de la classe.
-
-<!--
-Le namespace est généralement placé au début du fichier.
-Grâce à lui, plusieurs modules peuvent avoir une classe appelée Vehicle
-sans conflit, et les imports rendent les dépendances visibles.
--->
+<div class="card card-success" style="margin-top: 4px; padding: 6px 12px; font-size: 13.5px;">
+  <strong>Résultat obtenu :</strong> Le serveur ne plante jamais. L'API renvoie un JSON clair avec le code HTTP 400 adapté.
+</div>
 
 ---
 
-# Namespace dans le projet
+# 4.2 SOLUTION : ORGANISATION PAR NAMESPACES
 
-Les dossiers peuvent refléter les namespaces :
+Structuration des responsabilités du projet **Gestion des Véhicules V2** en sous-dossiers logiques :
 
 ```text
 app/
-├── Exceptions/VehicleNotFoundException.php
-├── Http/Controllers/VehicleController.php
-├── Models/Vehicle.php
-└── Repositories/VehicleRepository.php
+├── Exceptions/ ─── VehicleValidationException.php   (namespace App\Exceptions)
+├── Models/     ─── Vehicle.php                      (namespace App\Models)
+├── Services/   ─── VehicleManager.php               (namespace App\Services)
+└── Traits/     ─── LoggableTrait.php                (namespace App\Traits)
 ```
 
-Avec Composer, l'autoload PSR-4 associe le préfixe `App\` au dossier `app/` :
+<div class="grid-2" style="margin-top: 6px;">
+  <div>
+    <h3>Modèle : <code>App\Models\Vehicle</code></h3>
+    <pre><code class="language-php">&lt;?php
+namespace App\Models;
 
-```json
-{
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/"
-    }
-  }
+class Vehicle {
+    public function __construct(
+        public int $id,
+        public string $marque,
+        public string $immatriculation
+    ) {}
 }
-```
+</code></pre>
+  </div>
 
-Après une modification de l'autoload : `composer dump-autoload`
+  <div>
+    <h3>Service : <code>App\Services\VehicleManager</code></h3>
+    <pre><code class="language-php">&lt;?php
+namespace App\Services;
 
-<!--
-Cette organisation aide à retrouver les classes quand le projet grandit.
-Le mapping PSR-4 permet à Composer de charger une classe à partir de son namespace
-et de son chemin, sans require manuel dans chaque fichier.
--->
+use App\Models\Vehicle; // Import explicite
 
----
-
-# 03 — Trait
-
-Un **trait** partage des méthodes entre plusieurs classes, sans créer de relation
-d'héritage.
-
-Exemple : les contrôleurs Véhicule et Catégorie renvoient tous deux du JSON.
-
-```php
-<?php
-namespace App\Http\Support;
-
-trait JsonResponse
-{
-    protected function respondWithJson(array $data, int $status = 200): void
-    {
-        http_response_code($status);
-        header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($data, JSON_THROW_ON_ERROR);
+class VehicleManager {
+    public function creer(int $id, string $marque, string $plaque): Vehicle {
+        return new Vehicle($id, $marque, $plaque);
     }
 }
-```
-
-Le trait centralise la préparation des réponses API JSON.
-
-<!--
-Un trait est une façon de partager du code entre classes qui ne sont pas forcément
-liées par héritage. Ici, les contrôleurs peuvent réutiliser la même méthode
-pour formater leurs réponses.
--->
+</code></pre>
+  </div>
+</div>
 
 ---
 
-# Utiliser le trait dans les contrôleurs
+# 4.3 SOLUTION : RÉUTILISATION AVEC LES TRAITS
 
-```php
-<?php
-namespace App\Http\Controllers;
+Partage de la journalisation entre le gestionnaire de véhicules et le gestionnaire de stockage :
 
-use App\Http\Support\JsonResponse;
+<div class="grid-2">
+  <div>
+    <h3>Définition du Trait : <code>LoggableTrait</code></h3>
+    <pre><code class="language-php">&lt;?php
+namespace App\Traits;
 
-class VehicleController
-{
-    use JsonResponse;
-
-    public function show(array $vehicle): void
-    {
-        $this->respondWithJson(['data' => $vehicle]);
+trait LoggableTrait {
+    public function logAction(string $message): void {
+        $date = date('Y-m-d H:i:s');
+        $ligne = "[$date] " . static::class . " : $message" . PHP_EOL;
+        file_put_contents(__DIR__ . '/../../app.log', $ligne, FILE_APPEND);
     }
 }
-```
+</code></pre>
+  </div>
 
-Un autre contrôleur peut aussi écrire `use JsonResponse;`.
+  <div>
+    <h3>Utilisation dans <code>VehicleManager</code></h3>
+    <pre><code class="language-php">&lt;?php
+namespace App\Services;
 
-- **Avantage :** éviter de copier-coller le même comportement.
-- **Limite :** un trait ne doit pas devenir un endroit où ranger toute la logique.
-- **À vérifier :** si l'encodage échoue, `JsonException` doit être traité par
-  le gestionnaire d'erreurs de l'application.
+use App\Traits\LoggableTrait;
 
-<!--
-Le contrôleur utilise le trait comme s'il possédait directement la méthode.
-On garde le trait limité à un comportement partagé et on traite aussi les erreurs
-possibles de l'encodage JSON.
--->
+class VehicleManager {
+    use LoggableTrait; // Injection directe
 
----
+    public function supprimer(int $id): bool {
+        // Suppression du véhicule dans le JSON...
+        $this-&gt;logAction("Véhicule #$id supprimé avec succès");
+        return true;
+    }
+}
+</code></pre>
+  </div>
+</div>
 
-# Mise en pratique — scénario CRUD
-
-| Étape | Notion utilisée | Résultat attendu |
-|:--|:--|:--|
-| Créer un véhicule avec un JSON mal formé | Exception | Réponse `400` et erreur journalisée |
-| Créer un véhicule sans immatriculation | Validation | Réponse `422` |
-| Afficher un identifiant inexistant | Exception métier | Réponse `404` |
-| Charger `Vehicle` dans un contrôleur | Namespace | Classe trouvée via `App\Models` |
-| Répondre depuis plusieurs contrôleurs | Trait | Même format JSON réutilisé |
-
-**Test manuel :** envoyer les cas valides et invalides avec un client HTTP
-(par exemple Postman), puis vérifier le statut et le corps JSON.
-
-<!--
-Ce tableau résume une petite série de tests que je peux faire sur l'API.
-Je vérifie le code HTTP et le contenu de la réponse, et pas seulement
-le fait que la page ne plante pas.
--->
+<div class="card card-primary" style="margin-top: 4px; padding: 6px 12px; font-size: 13.5px;">
+  <strong>Avantage clé :</strong> N'importe quelle classe peut maintenant utiliser <code>$this-&gt;logAction(...)</code> sans duplication de code.
+</div>
 
 ---
 
-# À retenir
+# 4.4 SOLUTION GLOBALE & LIVRABLES DU LAB
 
-- **Erreurs et exceptions** : détecter un problème, le traiter au bon niveau,
-  journaliser ce qui aide au diagnostic et répondre clairement.
-- **Namespace** : nommer et organiser les classes pour éviter les conflits.
-- **Trait** : partager une méthode entre classes sans dupliquer le code.
+Architecture finale consolidée pour le projet **Gestion des Véhicules V2** :
 
-**La bonne règle :** chaque outil doit répondre à un besoin réel du projet.
+<div class="grid-3">
+  <div class="card card-success">
+    <span class="badge badge-emerald">Livrable 1</span>
+    <h3>Exceptions Métier</h3>
+    <p>Validation stricte des champs du véhicule avant écriture dans <code>vehicles.json</code>.</p>
+    <ul>
+      <li>Code HTTP d'erreur standardisé (400, 404).</li>
+      <li>Sécurité et prévisibilité de l'API.</li>
+    </ul>
+  </div>
 
-<!--
-Pour conclure, ces trois notions rendent le code plus organisé et plus fiable
-lorsqu'elles sont utilisées à bon escient.
-Merci pour votre attention. Avez-vous des questions ?
--->
+  <div class="card card-success">
+    <span class="badge badge-emerald">Livrable 2</span>
+    <h3>Namespaces PSR-4</h3>
+    <p>Séparation propre entre modèles, services métier, exceptions et traits.</p>
+    <ul>
+      <li>Zéro conflit de nom de classe.</li>
+      <li>Chargement automatique ordonné.</li>
+    </ul>
+  </div>
 
----
+  <div class="card card-success">
+    <span class="badge badge-emerald">Livrable 3</span>
+    <h3>Traits Transversaux</h3>
+    <p>Comportements partagés sans duplication entre classes du backend.</p>
+    <ul>
+      <li>Traçabilité des opérations CRUD.</li>
+      <li>Code maintenable et extensible.</li>
+    </ul>
+  </div>
+</div>
 
-<!-- _class: final -->
+<div class="card" style="margin-top: 10px; background: #0f172a; color: #f8fafc; padding: 10px 14px; font-family: Consolas, monospace; font-size: 13px;">
+  <span style="color: #38bdf8;">$ php exceptions/exemple.php</span> ➔ Validation & capture d'erreurs<br>
+  <span style="color: #38bdf8;">$ php namespaces/exemple.php</span> ➔ Organisation modulaire et imports<br>
+  <span style="color: #38bdf8;">$ php traits/exemple.php</span>     ➔ Journalisation transversale des actions CRUD
+</div>
 
-# MERCI !
-
-## Questions ?
-
-**PHP · API · Gestion des Véhicules V2**
