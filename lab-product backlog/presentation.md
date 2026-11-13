@@ -110,7 +110,7 @@ style: |
 
 ## Blog des Lauréats
 
-**Apprenant :** À compléter &nbsp; · &nbsp; **Encadrant :** À compléter
+**Apprenant :*Ayoub Amaghouch*  &nbsp; · &nbsp; **Encadrant :*ES-Sarraj Fouad* 
 
 ---
 
