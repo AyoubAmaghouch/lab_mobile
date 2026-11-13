@@ -1,0 +1,17 @@
+
+usecase-beta
+direction LR
+
+actor Admin("Admin")
+actor Auteur("Lauréat")
+actor Visiteur("Visiteur")
+
+systemBoundary Blog["Système de gestion du Blog des Lauréats"]
+    Gerer("Gérer les utilisateurs et les publications")
+    Rediger("Rédiger et gérer ses articles")
+    Consulter("Consulter les articles publiés")
+end
+
+Admin --> Gerer
+Auteur --> Rediger
+Visiteur --> Consulter
